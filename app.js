@@ -23,7 +23,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/search/get/', proxy({target: 'http://music.163.com', changeOrigin: true}));
+// app.use('/api/search/get/', proxy({target: 'http://music.163.com', changeOrigin: true}));
+app.use('/song_search_v2', proxy({target: 'http://songsearch.kugou.com', changeOrigin: true}));
+app.use('/yy/', proxy({target: 'http://www.kugou.com', changeOrigin: true}));
+
 
 
 app.use('/', index);
